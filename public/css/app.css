@@ -1,0 +1,91 @@
+body {
+  font-family: "Quicksand", sans-serif;
+}
+
+.logo {
+  font-family: "Amita", cursive;
+}
+
+.text-primary-c {
+  color: #5BDF31;
+}
+
+.logo-img {
+  width: 50px;
+}
+
+nav li a {
+  transition: all 0.3s ease-in-out;
+}
+nav li a:hover {
+  color: #5BDF31;
+}
+nav li a .cart {
+  background: #31A10C;
+  color: #fff;
+}
+nav li a .cart:hover {
+  background: #31A10C;
+  color: #fff;
+}
+
+.order-btn {
+  color: #fff;
+  background: #5BDF31;
+  border: 2px solid #5BDF31;
+  transition: all 0.3s ease-in-out;
+}
+.order-btn:hover {
+  background: #31A10C;
+  color: #fff;
+  border-color: #31A10C;
+}
+
+section.hero {
+  background: #f8f8f8;
+}
+
+.peace {
+  background: #f8f8f8;
+}
+
+.card .add-to-cart {
+  color: #5BDF31;
+  border: 2px solid #5BDF31;
+  transition: all 0.3s ease-in-out;
+}
+.card .add-to-cart:hover {
+  background: #5BDF31;
+  color: #fff;
+  border-color: #fff;
+}
+
+.cart {
+  background: #f8f8f8;
+}
+.cart .amount {
+  color: #5BDF31;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+}
+
+.f-outline input:not(:-moz-placeholder-shown) ~ label {
+  transform: translateY(-1.5rem) translatex(-1rem) scaleX(0.8) scaleY(0.8);
+}
+
+.f-outline input:not(:-ms-input-placeholder) ~ label {
+  transform: translateY(-1.5rem) translatex(-1rem) scaleX(0.8) scaleY(0.8);
+}
+
+.f-outline input:focus-within ~ label,
+.f-outline input:not(:placeholder-shown) ~ label {
+  transform: translateY(-1.5rem) translatex(-1rem) scaleX(0.8) scaleY(0.8);
+}
+
+.login, .register {
+  background: #f8f8f8;
+  height: calc(100vh - 150px);
+}

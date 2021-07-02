@@ -1,0 +1,79 @@
+
+@import "./variables";
+
+body{
+        font-family: $quick;
+}
+
+.logo{
+        font-family: $amita;
+}
+.text-primary-c{
+        color: $primary;
+}
+.logo-img{
+        width: 50px;
+}
+nav li a{
+        transition: $smouth;
+        &:hover{
+                color: $primary;
+        }
+.cart{
+        background: $primary-hover;
+        color: $pure;
+        &:hover{
+                background: $primary-hover;
+                color: $pure;
+        }
+}
+}
+.order-btn{
+        color: $pure;
+        background: $primary;
+        border: 2px solid $primary;
+        transition: $smouth;
+        &:hover{
+                background: $primary-hover;
+                color: $pure;
+                border-color: $primary-hover;
+        }
+}
+section.hero{
+        background: $secondary;
+        
+}
+.peace{
+        background: $secondary;
+}
+.card .add-to-cart{
+        color: $primary;
+        border: 2px solid $primary;
+        transition: $smouth;
+        &:hover{
+                background: $primary;
+                color: $pure;
+                border-color: $pure;
+        }
+}
+.cart{
+        background: $secondary;
+        .amount {
+                color: $primary;
+        }
+}
+footer {
+        position: relative;
+        bottom: 0;
+}
+   .f-outline input:focus-within ~ label,
+    .f-outline input:not(:placeholder-shown) ~ label {
+        transform: translateY(-1.5rem) translatex(-1rem) scaleX(0.80) scaleY(0.80);
+    }
+ .login,.register {
+         background: $secondary;
+         height: calc(100vh - 150px);
+ }
+ .form input {
+         
+ }

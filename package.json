@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "This is a online pani puri ordering website",
   "main": "index.js",
-    "scripts": {
+  "scripts": {
     "serve": "node server",
     "dev": "nodemon server"
   },
@@ -15,6 +15,10 @@
     "express-ejs-layouts": "^2.5.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.8"
+    "laravel-mix": "^6.0.25",
+    "nodemon": "^2.0.8",
+    "resolve-url-loader": "^4.0.0",
+    "sass": "^1.35.1",
+    "sass-loader": "^12.1.0"
   }
 }
