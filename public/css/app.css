@@ -89,3 +89,7 @@ footer {
   background: #f8f8f8;
   height: calc(100vh - 150px);
 }
+
+.cols-gap-6 {
+  grid-column-gap: 30px;
+}

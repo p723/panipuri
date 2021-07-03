@@ -74,6 +74,9 @@ footer {
          background: $secondary;
          height: calc(100vh - 150px);
  }
+ .cols-gap-6{
+         grid-column-gap: 30px;
+ }
  .form input {
          
  }

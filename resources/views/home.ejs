@@ -12,14 +12,15 @@
        </section>
         <section class="menu container mx-auto py-8">
                 <h1 class="text-xl font-bold mb-8">All items</h1>
-                <div class="grid grid-cols-4 gap-6">
+                <div class="grid grid-cols-4 cols-gap-6">
+                        <% items.forEach(function(items){ %>
                         <div class="card">
-                                <img class="h-40 mb-4 mx-auto" src="img/dahi-puri.png" alt=""/>
+                                <img class="h-40 mb-4 mx-auto" src="img/<%= items.image %>" alt=""/>
                                 <div class="text-center">
-                                        <h2 class="mb-4 text-lg">Pani Puri</h2>
-                                        <span class="peace py-1 px-4 rounded-full uppercase text-xs">6 peace</span>
+                                        <h2 class="mb-4 text-lg"><%= items.name %></h2>
+                                        <span class="peace py-1 px-4 rounded-full uppercase text-xs"><%= items.size %></span>
                                         <div class="flex items-center justify-between mt-6">
-                                            <span>$ 20</span>
+                                            <span>₹<%= items.price %></span>
                                             <button class="add-to-cart py-1 px-5 rounded-full flex items-center font-bold">
                                             <span class="mr-2">+</span>
                                             <span>Add Cart</span>
@@ -27,103 +28,6 @@
                                             </div>
                                 </div>
                         </div>
-                        <div class="card">
-                                <img class="h-40 mb-4 mx-auto" src="img/dahi-puri.png" alt=""/>
-                                <div class="text-center">
-                                        <h2 class="mb-4 text-lg">Pani Puri</h2>
-                                        <span class="peace py-1 px-4 rounded-full uppercase text-xs">6 peace</span>
-                                        <div class="flex items-center justify-between mt-6">
-                                            <span>$ 20</span>
-                                            <button class="add-to-cart py-1 px-5 rounded-full flex items-center font-bold">
-                                            <span class="mr-2">+</span>
-                                            <span>Add Cart</span>
-                                            </button>
-                                            </div>
-                                </div>
-                        </div>
-                        <div class="card">
-                                <img class="h-40 mb-4 mx-auto" src="img/dahi-puri.png" alt=""/>
-                                <div class="text-center">
-                                        <h2 class="mb-4 text-lg">Pani Puri</h2>
-                                        <span class="peace py-1 px-4 rounded-full uppercase text-xs">6 peace</span>
-                                        <div class="flex items-center justify-between mt-6">
-                                            <span>$ 20</span>
-                                            <button class="add-to-cart py-1 px-5 rounded-full flex items-center font-bold">
-                                            <span class="mr-2">+</span>
-                                            <span>Add Cart</span>
-                                            </button>
-                                            </div>
-                                </div>
-                        </div>
-                        <div class="card">
-                                <img class="h-40 mb-4 mx-auto" src="img/dahi-puri.png" alt=""/>
-                                <div class="text-center">
-                                        <h2 class="mb-4 text-lg">Pani Puri</h2>
-                                        <span class="peace py-1 px-4 rounded-full uppercase text-xs">6 peace</span>
-                                        <div class="flex items-center justify-between mt-6">
-                                            <span>$ 20</span>
-                                            <button class="add-to-cart py-1 px-5 rounded-full flex items-center font-bold">
-                                            <span class="mr-2">+</span>
-                                            <span>Add Cart</span>
-                                            </button>
-                                            </div>
-                                </div>
-                        </div>
-                        <div class="card">
-                                <img class="h-40 mb-4 mx-auto" src="img/dahi-puri.png" alt=""/>
-                                <div class="text-center">
-                                        <h2 class="mb-4 text-lg">Pani Puri</h2>
-                                        <span class="peace py-1 px-4 rounded-full uppercase text-xs">6 peace</span>
-                                        <div class="flex items-center justify-between mt-6">
-                                            <span>$ 20</span>
-                                            <button class="add-to-cart py-1 px-5 rounded-full flex items-center font-bold">
-                                            <span class="mr-2">+</span>
-                                            <span>Add Cart</span>
-                                            </button>
-                                            </div>
-                                </div>
-                        </div>
-                        <div class="card">
-                                <img class="h-40 mb-4 mx-auto" src="img/dahi-puri.png" alt=""/>
-                                <div class="text-center">
-                                        <h2 class="mb-4 text-lg">Pani Puri</h2>
-                                        <span class="peace py-1 px-4 rounded-full uppercase text-xs">6 peace</span>
-                                        <div class="flex items-center justify-between mt-6">
-                                            <span>$ 20</span>
-                                            <button class="add-to-cart py-1 px-5 rounded-full flex items-center font-bold">
-                                            <span class="mr-2">+</span>
-                                            <span>Add Cart</span>
-                                            </button>
-                                            </div>
-                                </div>
-                        </div>
-                        <div class="card">
-                                <img class="h-40 mb-4 mx-auto" src="img/dahi-puri.png" alt=""/>
-                                <div class="text-center">
-                                        <h2 class="mb-4 text-lg">Pani Puri</h2>
-                                        <span class="peace py-1 px-4 rounded-full uppercase text-xs">6 peace</span>
-                                        <div class="flex items-center justify-between mt-6">
-                                            <span>$ 20</span>
-                                            <button class="add-to-cart py-1 px-5 rounded-full flex items-center font-bold">
-                                            <span class="mr-2">+</span>
-                                            <span>Add Cart</span>
-                                            </button>
-                                            </div>
-                                </div>
-                        </div>
-                        <div class="card">
-                                <img class="h-40 mb-4 mx-auto" src="img/dahi-puri.png" alt=""/>
-                                <div class="text-center">
-                                        <h2 class="mb-4 text-lg">Pani Puri</h2>
-                                        <span class="peace py-1 px-4 rounded-full uppercase text-xs">6 peace</span>
-                                        <div class="flex items-center justify-between mt-6">
-                                            <span>$ 20</span>
-                                            <button class="add-to-cart py-1 px-5 rounded-full flex items-center font-bold">
-                                            <span class="mr-2">+</span>
-                                            <span>Add Cart</span>
-                                            </button>
-                                            </div>
-                                </div>
-                        </div>
+                        <% }) %>
                 </div>
         </section>
