@@ -1,7 +1,7 @@
 const User = require('../../models/user')
 const passport = require("passport");
 
-const bcrypt = require('bcrypt')
+//const bcrypt = require('bcrypt')
 function authController() {
          return {
                   login(req, res) {
@@ -29,7 +29,7 @@ function authController() {
                   register(req, res) {
                            return res.render('auth/register')
                   },
-                  async postRegister(req, res) {
+                  /*async*/ postRegister(req, res) {
                            const {
                                     name,
                                     email,
@@ -53,16 +53,15 @@ function authController() {
                                              return res.redirect('/register')
                                     }
                            })
-                           //HASH password
+                           /*  //HASH password
 
-                           const hashedPassword = await bcrypt.hash(password,
-                                    10);
-
+                           const hashedPassword = await bcrypt.hash(password, 10);
+                           */
                            // create a user
                            const user = new User({
                                     name,
                                     email,
-                                    password: hashedPassword
+                                    password
                            })
 
                            user.save().then((user) => {
