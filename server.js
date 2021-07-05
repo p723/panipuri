@@ -9,6 +9,8 @@ const expressLayouts = require("express-ejs-layouts")
 const session = require("express-session")
 const flash = require("express-flash")
 const MongoDbStore = require("connect-mongo");
+const passport = require("passport");
+
 
 const PORT = process.env.PORT || 3000
 //database connection
@@ -23,11 +25,16 @@ connection.once('open', () => {
          console.log('database not connected')
 })
 
+
 const mongoStore = MongoDbStore.create ({
          mongoUrl: url,
          collection: 'session'
 })
+app.use(express.urlencoded({
+         extended: false
+}))
 app.use(express.json())
+// session config
 app.use(session({
          secret: 'thisismysectet',
          resave: false,
@@ -39,9 +46,16 @@ app.use(session({
 }))
 app.use(flash())
 
+// passport config
+const passportinit = require('./app/config/passport')
+passportinit(passport)
+app.use(passport.initialize());
+app.use(passport.session());
+
 //global midalware
 app.use((req, res, next)=> {
          res.locals.session = req.session
+         res.locals.user = req.user
          next()
 })
 

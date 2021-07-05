@@ -1,31 +1,34 @@
 {
-  "name": "panipuri",
-  "version": "1.0.0",
-  "description": "This is a online pani puri ordering website",
-  "main": "index.js",
-  "scripts": {
-    "serve": "node server",
-    "dev": "nodemon server"
-  },
-  "author": "Pranav Bhatkar",
-  "license": "MIT",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "connect-mongo": "^4.4.1",
-    "dotenv": "^10.0.0",
-    "ejs": "^3.1.6",
-    "express": "^4.17.1",
-    "express-ejs-layouts": "^2.5.1",
-    "express-flash": "^0.0.2",
-    "express-session": "^1.17.2",
-    "mongoose": "^5.13.1",
-    "noty": "^3.2.0-beta-deprecated"
-  },
-  "devDependencies": {
-    "laravel-mix": "^6.0.25",
-    "nodemon": "^2.0.8",
-    "resolve-url-loader": "^4.0.0",
-    "sass": "^1.35.1",
-    "sass-loader": "^12.1.0"
-  }
+         "name": "panipuri",
+         "version": "1.0.0",
+         "description": "This is a online pani puri ordering website",
+         "main": "index.js",
+         "scripts": {
+                  "serve": "node server",
+                  "dev": "nodemon server"
+         },
+         "author": "Pranav Bhatkar",
+         "license": "MIT",
+         "dependencies": {
+                  "axios": "^0.21.1",
+                  "bcrypt": "^5.0.0",
+                  "connect-mongo": "^4.4.1",
+                  "dotenv": "^10.0.0",
+                  "ejs": "^3.1.6",
+                  "express": "^4.17.1",
+                  "express-ejs-layouts": "^2.5.1",
+                  "express-flash": "^0.0.2",
+                  "express-session": "^1.17.2",
+                  "mongoose": "^5.13.1",
+                  "noty": "^3.2.0-beta-deprecated",
+                  "passport": "^0.4.1",
+                  "passport-local": "^1.0.0"
+         },
+         "devDependencies": {
+                  "laravel-mix": "^6.0.25",
+                  "nodemon": "^2.0.8",
+                  "resolve-url-loader": "^4.0.0",
+                  "sass": "^1.35.1",
+                  "sass-loader": "^12.1.0"
+         }
 }
