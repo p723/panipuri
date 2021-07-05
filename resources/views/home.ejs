@@ -21,7 +21,7 @@
                                         <span class="peace py-1 px-4 rounded-full uppercase text-xs"><%= items.size %></span>
                                         <div class="flex items-center justify-between mt-6">
                                             <span>₹<%= items.price %></span>
-                                            <button class="add-to-cart py-1 px-5 rounded-full flex items-center font-bold">
+                                            <button data-items='<%= JSON.stringify(items) %>' class="add-to-cart py-1 px-5 rounded-full flex items-center font-bold">
                                             <span class="mr-2">+</span>
                                             <span>Add Cart</span>
                                             </button>

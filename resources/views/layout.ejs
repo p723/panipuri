@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.4/tailwind.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-        <link href="css/app.css" rel="stylesheet" >
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Noto+Sans+JP:wght@300;400;500&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-        <title>पाणी पुरी</title>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+         <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.4/tailwind.min.css" rel="stylesheet">
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+         <link href="css/app.css" rel="stylesheet">
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         <link href="https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Noto+Sans+JP:wght@300;400;500&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+         <title>पाणी पुरी</title>
 </head>
 <body>
-       <nav class="container mx-auto flex items-center justify-between py-4">
-               <div class="logo flex items-center">
-                       <img class="logo-img" src="img/logo.png" alt="logo" />
-                       <h1>पाणी पुरी</h1>
-               </div>
-               <div class="">
-                       <ul class="flex items-center">
-                               <li class="mx-1"><a href="/" >Home</a></li>
-                               <li class="mx-1"><a href="#" >Products</a></li>
-                               <li class="mx-1"><a href="/login" >login</a></li>
-                               <li class="mx-1"><a href="/register" >register</a></li>
-                               <li class="mx-1"><a href="/cart" class="order-btn inline-block px-6 py-2 rounded-full" ><i class="bi bi-cart"></i></a></li>
-                       </ul>
-               </div>
-       </nav>
-      <%- body %>
-        <script src="js/app.js"></script>
+         <nav class="container mx-auto flex items-center justify-between py-4">
+                  <div class="logo flex items-center">
+                           <img class="logo-img" src="img/logo.png" alt="logo" />
+                           <h1>पाणी पुरी</h1>
+                  </div>
+                  <div class="">
+                           <ul class="flex items-center">
+                                    <li class="mx-1"><a href="/">Home</a></li>
+                                    <li class="mx-1"><a href="#">Products</a></li>
+                                    <li class="mx-1"><a href="/login">login</a></li>
+                                    <li class="mx-1"><a href="/register">register</a></li>
+                                    <li class="mx-1"><a href="/cart" class="order-btn inline-block px-6 py-2 rounded-full flex"><span id="cartCount" class="text-white mr-3"><%= session.cart ? session.cart.totalQty: '0' %></span><i class="bi bi-cart"></i></a></li>
+                           </ul>
+                  </div>
+         </nav>
+         <%- body %>
+         <script src="js/app.js"></script>
 </body>
 </html>
