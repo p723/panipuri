@@ -381,3 +381,7 @@ footer {
 .cols-gap-6 {
   grid-column-gap: 30px;
 }
+
+a.link {
+  color: #5BDF31;
+}
