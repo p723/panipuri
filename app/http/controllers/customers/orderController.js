@@ -37,7 +37,7 @@ function orderController () {
                            order.save().then(result => {
                                     req.flash('success', 'Order placed')
                                     delete req.session.cart
-                                    return res.redirect('/customer-orders')
+                                    return res.redirect('/customer/orders')
                            }).catch(err => {
                                     req.flash('error', 'Something went Wrong..!')
                                     return res.redirect('/cart')

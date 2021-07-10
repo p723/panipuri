@@ -122,6 +122,7 @@ axios.get('/admin/orders', {
          }
 }).then(res => {
          orders = res.data;
+         console.log(res.data)
          markup = generateMarkup(orders);
          orderTableBody.innerHTML = markup;
 }).catch(err => {
@@ -131,9 +132,7 @@ axios.get('/admin/orders', {
 function renderItems(items) {
          let parsedItems = Object.values(items)
          return parsedItems.map((menuItem) => {
-                  return `
-                  <p>${ menuItem.item.name } - ${ menuItem.qty } pcs </p>
-                  `
+                  return `<p>${ menuItem.item.name } - ${ menuItem.Qty } pcs </p>`
          }).join('')
 }
 
@@ -180,9 +179,6 @@ function generateMarkup(orders) {
                   </td>
                   <td class="border px-4 py-2">
                   ${ moment(order.createdAt).format('hh:mm A') }
-                  </td>
-                  <td class="border px-4 py-2">
-                  ${ order.paymentStatus ? 'paid': 'Not paid' }
                   </td>
                   </tr>
                   `
