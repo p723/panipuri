@@ -1,6 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy
 const User = require('../models/user')
-const bcrypt = require('bcrypt')
+//const bcrypt = require('bcrypt')
 
 function init(passport) {
          passport.use(new LocalStrategy({
@@ -18,7 +18,7 @@ function init(passport) {
                            })
                   }
 
-                  bcrypt.compare(password, user.password).then(match => {
+                  /*bcrypt.compare(password, user.password).then(match => {
                            if (match) {
                                     return done(null, user, {
                                              message: 'Logged in succesfully'
@@ -31,8 +31,8 @@ function init(passport) {
                            return done(null, false, {
                                     message: 'Something went wrong'
                            })
-                  })
-                  /*  const passwordServer = user.password;
+                  })*/
+                  const passwordServer = user.password;
                   if (password == passwordServer) {
                            return done(null, user, {
                                     message: 'Logged in succesfully'
@@ -41,7 +41,7 @@ function init(passport) {
                            return done(null, false, {
                                     message: 'Wrong username or password'
                            })
-                  }*/
+                  }
          }))
 
          passport.serializeUser((user,

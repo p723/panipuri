@@ -7,7 +7,7 @@
 import axios from "axios";
 import Noty from "noty";
 import moment from 'moment'
-//import {initAdmin} from "./admin";
+import { initAdmin } from "./admin";
 
 let addtocart = document.querySelectorAll('.add-to-cart')
 let cartCount = document.querySelector('#cartCount')
@@ -110,7 +110,6 @@ if (alertMsg) {
                   alertMsg.remove()
          }, 2000)
 }
-
 //admin
 const orderTableBody = document.querySelector('#orderTableBody')
 let orders = []
@@ -122,19 +121,12 @@ axios.get('/admin/orders', {
          }
 }).then(res => {
          orders = res.data;
-         console.log(res.data)
+         console.log(res.data);
          markup = generateMarkup(orders);
          orderTableBody.innerHTML = markup;
 }).catch(err => {
          console.log(err);
 })
-
-function renderItems(items) {
-         let parsedItems = Object.values(items)
-         return parsedItems.map((menuItem) => {
-                  return `<p>${ menuItem.item.name } - ${ menuItem.Qty } pcs </p>`
-         }).join('')
-}
 
 function generateMarkup(orders) {
          return orders.map(order => {
@@ -184,4 +176,12 @@ function generateMarkup(orders) {
                   `
          }).join('')
 }
+
+function renderItems(items) {
+         let parsedItems = Object.values(items);
+         return parsedItems.map((menuItem) => {
+                  return `<p>${ menuItem.item.name } - ${ menuItem.Qty } pcs </p>`
+         }).join('');
+}
+
 //admin

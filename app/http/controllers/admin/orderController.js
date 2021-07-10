@@ -1,24 +1,18 @@
 const order = require("../../../models/order")
-const Order = require('../../../models/order')
 
 function orderController() {
          return {
                   index(req, res) {
-                          const orders = Order.find({
-                                    status: {
-                                             $ne: 'completed'
-                                    }
-                           }, null, {
-                                    sort: {
-                                             'createdAt': -1
-                                    }}).populate({path:'users', match:{_id:'customerId'}}).exec((err, Orders) => {
+                          const Orders = order.find({ status: { $ne: 'completed' } }, null,{ sort: { 'createdAt': -1}})
+                          .populate('customerId', '-password').exec((err, result) => {
                                     if(err){
-                                             console.log(err)
+                                           return res.send(err)
                                     }
                                     if (req.xhr) {
-                                             return res.json(Orders)
-                                    }
+                                             return res.json(result)
+                                    }else{
                                     return res.render('admin/orders')
+                                    }
                            })
                   }
          }
