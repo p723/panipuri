@@ -1,13 +1,12 @@
-(function () {
-         var script = document.createElement('script'); script.src = "//cdn.jsdelivr.net/npm/eruda"; document.body.appendChild(script); script.onload = function () {
+const body = document.querySelector("#body");
+body.addEventListener('onload', () => {
                   eruda.init()
-         }
-})()
+         })
+
 
 import axios from "axios";
 import Noty from "noty";
 import moment from 'moment'
-import { initAdmin } from "./admin";
 
 let addtocart = document.querySelectorAll('.add-to-cart')
 let cartCount = document.querySelector('#cartCount')
@@ -136,7 +135,7 @@ function generateMarkup(orders) {
                   <p>${ order._id }</p>
                   <div>${ renderItems(order.items) }</div>
                   </td>
-                  <td class="border px-4 py-2">${ order.customerId.name }</td>
+                  <td class="border px-4 py-2">${ order.customerId }</td>
                   <td class="border px-4 py-2">${ order.address }</td>
                   <td class="border px-4 py-2">
                   <div class="inline-block relative w-64">
@@ -185,3 +184,36 @@ function renderItems(items) {
 }
 
 //admin
+let statuses = document.querySelectorAll('.status_line')
+let hiddenInput = document.querySelector('#hiddenInput')
+let order = hiddenInput ? hiddenInput.value : null
+order = JSON.parse(order)
+let time = document.createElement('small')
+let logbtn = document.querySelector("#logbt")
+logbtn.addEventListener('click', () => {
+                console.log(order);
+         })
+function updateStatus(order) {
+    statuses.forEach((status) => {
+        status.classList.remove('step-completed')
+        status.classList.remove('current')
+    })
+    let stepCompleted = true;
+    statuses.forEach((status) => {
+       let dataProp = status.dataset.status
+       if(stepCompleted) {
+            status.classList.add('step-completed')
+       }
+       if(dataProp === order.status) {
+            stepCompleted = false
+            time.innerText = moment(order.updatedAt).format('hh:mm A')
+            status.appendChild(time)
+           if(status.nextElementSibling) {
+            status.nextElementSibling.classList.add('current')
+           }
+       }
+    })
+
+}
+
+updateStatus(order);

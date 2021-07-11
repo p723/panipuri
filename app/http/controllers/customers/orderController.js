@@ -37,12 +37,21 @@ function orderController () {
                            order.save().then(result => {
                                     req.flash('success', 'Order placed')
                                     delete req.session.cart
+                                    res.header('Cache-Control', 'no-store')
                                     return res.redirect('/customer/orders')
                            }).catch(err => {
                                     req.flash('error', 'Something went Wrong..!')
                                     return res.redirect('/cart')
                            })
-                  }
+                  },
+                  async show(req, res) {
+            const order = await Order.findById(req.params.id)
+            // Authorize user
+            if(req.user._id.toString() === order.customerId.toString()) {
+                return res.render('customers/singleOrder', { order })
+            }
+            return  res.redirect('/')
+        }
          }
 }
 module.exports = orderController

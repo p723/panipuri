@@ -1834,47 +1834,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./resources/js/admin.js":
-/*!*******************************!*\
-  !*** ./resources/js/admin.js ***!
-  \*******************************/
-/***/ ((module) => {
-
-function initAdmin() {
-  var orderTableBody = document.querySelector('#orderTableBody');
-  var orders = [];
-  var markup;
-  axios.get('/admin/orders', {
-    headers: {
-      "X-Requested-With": "XMLHttpRequest"
-    }
-  }).then(function (res) {
-    orders = res.data;
-    console.log(res.data);
-    markup = generateMarkup(orders);
-    orderTableBody.innerHTML = markup;
-  })["catch"](function (err) {
-    console.log(err);
-  });
-
-  function generateMarkup(orders) {
-    return orders.map(function (order) {
-      return "\n                           <tr>\n                           <td class=\"border px-4 py-2 text-green-900\">\n                           <p>".concat(order._id, "</p>\n                           <div>").concat(renderItems(order.items), "</div>\n                           </td>\n                           <td class=\"border px-4 py-2\">").concat(order.customerId.name, "</td>\n                           <td class=\"border px-4 py-2\">").concat(order.address, "</td>\n                           <td class=\"border px-4 py-2\">\n                           <div class=\"inline-block relative w-64\">\n                           <form action=\"/admin/order/status\" method=\"POST\">\n                           <input type=\"hidden\" name=\"orderId\" value=\"").concat(order._id, "\">\n                           <select name=\"status\" onchange=\"this.form.submit()\"\n                           class=\"block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline\">\n                           <option value=\"order_placed\"\n                           ").concat(order.status === 'order_placed' ? 'selected' : '', ">\n                           Placed</option>\n                           <option value=\"confirmed\" ").concat(order.status === 'confirmed' ? 'selected' : '', ">\n                           Confirmed</option>\n                           <option value=\"prepared\" ").concat(order.status === 'prepared' ? 'selected' : '', ">\n                           Prepared</option>\n                           <option value=\"delivered\" ").concat(order.status === 'delivered' ? 'selected' : '', ">\n                           Delivered\n                           </option>\n                           <option value=\"completed\" ").concat(order.status === 'completed' ? 'selected' : '', ">\n                           Completed\n                           </option>\n                           </select>\n                           </form>\n                           <div\n                           class=\"pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700\">\n                           <svg class=\"fill-current h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\"\n                           viewBox=\"0 0 20 20\">\n                           <path\n                           d=\"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z\" />\n                           </svg>\n                           </div>\n                           </div>\n                           </td>\n                           <td class=\"border px-4 py-2\">\n                           ").concat(moment(order.createdAt).format('hh:mm A'), "\n                           </td>\n                           </tr>\n                           ");
-    }).join('');
-  }
-
-  function renderItems(items) {
-    var parsedItems = Object.values(items);
-    return parsedItems.map(function (menuItem) {
-      return "\n                           <p>".concat(menuItem.item.name, " - ").concat(menuItem.qty, " pcs </p>\n                           ");
-    }).join('');
-  }
-}
-
-module.exports = initAdmin;
-
-/***/ }),
-
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -1889,19 +1848,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(noty__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./admin */ "./resources/js/admin.js");
-/* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_admin__WEBPACK_IMPORTED_MODULE_3__);
-(function () {
-  var script = document.createElement('script');
-  script.src = "//cdn.jsdelivr.net/npm/eruda";
-  document.body.appendChild(script);
-
-  script.onload = function () {
-    eruda.init();
-  };
-})();
-
-
+var body = document.querySelector("#body");
+body.addEventListener('onload', function () {
+  eruda.init();
+});
 
 
 
@@ -2027,7 +1977,7 @@ axios__WEBPACK_IMPORTED_MODULE_0___default().get('/admin/orders', {
 
 function generateMarkup(orders) {
   return orders.map(function (order) {
-    return "\n                  <tr>\n                  <td class=\"border px-4 py-2 text-green-900\">\n                  <p>".concat(order._id, "</p>\n                  <div>").concat(renderItems(order.items), "</div>\n                  </td>\n                  <td class=\"border px-4 py-2\">").concat(order.customerId.name, "</td>\n                  <td class=\"border px-4 py-2\">").concat(order.address, "</td>\n                  <td class=\"border px-4 py-2\">\n                  <div class=\"inline-block relative w-64\">\n                  <form action=\"/admin/order/status\" method=\"POST\">\n                  <input type=\"hidden\" name=\"orderId\" value=\"").concat(order._id, "\">\n                  <select name=\"status\" onchange=\"this.form.submit()\"\n                  class=\"block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline\">\n                  <option value=\"order_placed\"\n                  ").concat(order.status === 'order_placed' ? 'selected' : '', ">\n                  Placed</option>\n                  <option value=\"confirmed\" ").concat(order.status === 'confirmed' ? 'selected' : '', ">\n                  Confirmed</option>\n                  <option value=\"prepared\" ").concat(order.status === 'prepared' ? 'selected' : '', ">\n                  Prepared</option>\n                  <option value=\"delivered\" ").concat(order.status === 'delivered' ? 'selected' : '', ">\n                  Delivered\n                  </option>\n                  <option value=\"completed\" ").concat(order.status === 'completed' ? 'selected' : '', ">\n                  Completed\n                  </option>\n                  </select>\n                  </form>\n                  <div\n                  class=\"pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700\">\n                  <svg class=\"fill-current h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\"\n                  viewBox=\"0 0 20 20\">\n                  <path\n                  d=\"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z\" />\n                  </svg>\n                  </div>\n                  </div>\n                  </td>\n                  <td class=\"border px-4 py-2\">\n                  ").concat(moment__WEBPACK_IMPORTED_MODULE_2___default()(order.createdAt).format('hh:mm A'), "\n                  </td>\n                  </tr>\n                  ");
+    return "\n                  <tr>\n                  <td class=\"border px-4 py-2 text-green-900\">\n                  <p>".concat(order._id, "</p>\n                  <div>").concat(renderItems(order.items), "</div>\n                  </td>\n                  <td class=\"border px-4 py-2\">").concat(order.customerId, "</td>\n                  <td class=\"border px-4 py-2\">").concat(order.address, "</td>\n                  <td class=\"border px-4 py-2\">\n                  <div class=\"inline-block relative w-64\">\n                  <form action=\"/admin/order/status\" method=\"POST\">\n                  <input type=\"hidden\" name=\"orderId\" value=\"").concat(order._id, "\">\n                  <select name=\"status\" onchange=\"this.form.submit()\"\n                  class=\"block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline\">\n                  <option value=\"order_placed\"\n                  ").concat(order.status === 'order_placed' ? 'selected' : '', ">\n                  Placed</option>\n                  <option value=\"confirmed\" ").concat(order.status === 'confirmed' ? 'selected' : '', ">\n                  Confirmed</option>\n                  <option value=\"prepared\" ").concat(order.status === 'prepared' ? 'selected' : '', ">\n                  Prepared</option>\n                  <option value=\"delivered\" ").concat(order.status === 'delivered' ? 'selected' : '', ">\n                  Delivered\n                  </option>\n                  <option value=\"completed\" ").concat(order.status === 'completed' ? 'selected' : '', ">\n                  Completed\n                  </option>\n                  </select>\n                  </form>\n                  <div\n                  class=\"pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700\">\n                  <svg class=\"fill-current h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\"\n                  viewBox=\"0 0 20 20\">\n                  <path\n                  d=\"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z\" />\n                  </svg>\n                  </div>\n                  </div>\n                  </td>\n                  <td class=\"border px-4 py-2\">\n                  ").concat(moment__WEBPACK_IMPORTED_MODULE_2___default()(order.createdAt).format('hh:mm A'), "\n                  </td>\n                  </tr>\n                  ");
   }).join('');
 }
 
@@ -2037,6 +1987,44 @@ function renderItems(items) {
     return "<p>".concat(menuItem.item.name, " - ").concat(menuItem.Qty, " pcs </p>");
   }).join('');
 } //admin
+
+
+var statuses = document.querySelectorAll('.status_line');
+var hiddenInput = document.querySelector('#hiddenInput');
+var order = hiddenInput ? hiddenInput.value : null;
+order = JSON.parse(order);
+var time = document.createElement('small');
+var logbtn = document.querySelector("#logbt");
+logbtn.addEventListener('click', function () {
+  console.log(order);
+});
+
+function updateStatus(order) {
+  statuses.forEach(function (status) {
+    status.classList.remove('step-completed');
+    status.classList.remove('current');
+  });
+  var stepCompleted = true;
+  statuses.forEach(function (status) {
+    var dataProp = status.dataset.status;
+
+    if (stepCompleted) {
+      status.classList.add('step-completed');
+    }
+
+    if (dataProp === order.status) {
+      stepCompleted = false;
+      time.innerText = moment__WEBPACK_IMPORTED_MODULE_2___default()(order.updatedAt).format('hh:mm A');
+      status.appendChild(time);
+
+      if (status.nextElementSibling) {
+        status.nextElementSibling.classList.add('current');
+      }
+    }
+  });
+}
+
+updateStatus(order);
 
 /***/ }),
 

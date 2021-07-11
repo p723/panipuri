@@ -3,6 +3,9 @@ const passport = require("passport");
 
 //const bcrypt = require('bcrypt')
 function authController() {
+       const _getRedirectUrl = (req) => {
+                return req.user.rule === "admin" ? "/admin/orders": "/customer/orders";
+       }
          return {
                   login(req, res) {
                            return res.render('auth/login')
@@ -22,7 +25,7 @@ function authController() {
                                                       req.flash('error', info.message)
                                                       return next(err)
                                              }
-                                             return res.redirect('/')
+                                             return res.redirect(_getRedirectUrl(req))
                                     })
                            })(req, res, next)
                   },

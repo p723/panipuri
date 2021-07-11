@@ -4,7 +4,7 @@ function orderController() {
          return {
                   index(req, res) {
                           const Orders = order.find({ status: { $ne: 'completed' } }, null,{ sort: { 'createdAt': -1}})
-                          .populate('customerId', '-password').exec((err, result) => {
+                          .populate('customerid', '-password').exec((err, result) => {
                                     if(err){
                                            return res.send(err)
                                     }
