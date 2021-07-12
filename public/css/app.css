@@ -276,6 +276,10 @@
   color: #fff;
 }
 
+.d-none {
+  display: none;
+}
+
 body {
   font-family: "Quicksand", sans-serif;
 }
@@ -377,6 +381,11 @@ footer {
 .login, .register {
   background: #f8f8f8;
   height: calc(100vh - 150px);
+}
+
+.login form {
+  width: 356px;
+  max-width: 356px;
 }
 
 .cols-gap-6 {
@@ -490,6 +499,7 @@ section.status {
   content: "";
   margin-left: 10px;
   color: #5BDF31;
+  text-decoration: none;
   font-size: 26px;
 }
 

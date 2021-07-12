@@ -9,6 +9,16 @@
                                              <span class="text-red-500 alert alert-denger text-sm"><%= messages.error %></span>
                                              <%
                                     } %>
+                                    <% if (messages.success) {
+                                             %>
+                                             <div class="text-green-500 text-sm alert alert-success"
+                                                      role="alert">
+                                                      <p>
+                                                               <%= messages.success %>
+                                                      </p>
+                                             </div>
+                                             <%
+                                    } %>
                                     <h2 class="text-4xl font-bold text-center text-primary-c">Login</h2>
                                     <div class="f-outline px-2 relative border rounded-lg focus-within:border-indigo-500">
                                              <input type="email" name="email" placeholder=" "

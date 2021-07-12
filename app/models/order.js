@@ -18,7 +18,7 @@ const orderSchema = new Schema({
                   type: String, default: 'COD'
                   },
                   status: {
-                           type: String, default: 'Order_Placed'
+                           type: String, default: 'order_placed'
                            },
                   }, {
                            timestamps: true

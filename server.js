@@ -10,7 +10,7 @@ const session = require("express-session")
 const flash = require("express-flash")
 const MongoDbStore = require("connect-mongo");
 const passport = require("passport");
-
+const Emitter = require('events')
 
 const PORT = process.env.PORT || 3000
 //database connection
@@ -25,15 +25,20 @@ connection.once('open', () => {
          console.log('database not connected')
 })
 
-
-const mongoStore = MongoDbStore.create ({
-         mongoUrl: url,
-         collection: 'session'
-})
 app.use(express.urlencoded({
          extended: false
 }))
 app.use(express.json())
+// session store
+const mongoStore = MongoDbStore.create ({
+         mongoUrl: url,
+         collection: 'session'
+})
+
+// Event emitter
+const eventEmitter = new Emitter()
+app.set('eventEmitter', eventEmitter)
+
 // session config
 app.use(session({
          secret: 'thisismysectet',
@@ -68,6 +73,24 @@ app.use(express.static('public'))
 
 require('./routes/web')(app)
 
-app.listen(PORT, () => {
-         console.log(`listening on port ${PORT}`)
+const server = app.listen(PORT , () => {
+            console.log(`Listening on port ${PORT}`)
+        })
+
+// Socket
+
+const io = require('socket.io')(server)
+io.on('connection', (socket) => {
+      // Join
+      socket.on('join', (orderId) => {
+        socket.join(orderId)
+      })
+})
+
+eventEmitter.on('orderUpdated', (data) => {
+    io.to(`order_${data.id}`).emit('orderUpdated', data)
+})
+
+eventEmitter.on('orderPlaced', (data) => {
+    io.to('adminRoom').emit('orderPlaced', data)
 })
