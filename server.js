@@ -14,7 +14,7 @@ const Emitter = require('events')
 
 const PORT = process.env.PORT || 3000
 //database connection
-const url = 'mongodb+srv://Pranav:{pranav1@}@cluster0.gvv4f.mongodb.net/panipuri?retryWrites=true&w=majority';
+const url = 'mongodb+srv://Pranav:AqjjBvc6nOPHTWkN@cluster0.gvv4f.mongodb.net/panipuri?retryWrites=true&w=majority';
 mongoose.connect(url, {
          useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: true
 });
