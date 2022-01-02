@@ -1,1 +1,3 @@
-# panipuri.github.io
+# panipuri food store
+
+Demo: https://gupchupkhao.herokuapp.com
